@@ -8,7 +8,7 @@ ITUNES_SEARCH_URL = "https://itunes.apple.com/search"
 def normalize(s: str) -> str:
     return s.replace(" ", "").replace("　", "").lower()
 
-def fetch_itunes_songs(artist: str, keyword: str, limit: int = 25):
+def fetch_itunes_songs(artist: str, keyword: str, limit: int = 200):
     """iTunes APIを叩いて、必要な項目だけに整形して返す"""
     term = f"{artist} {keyword}".strip()
     # strip():前後の空白を削除、文字列の途中のスペースは消さない
