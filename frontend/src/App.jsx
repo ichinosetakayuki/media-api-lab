@@ -3,6 +3,7 @@ import "./App.css";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { RenderDataList } from "./components/RenderDataList";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function App() {
   const [artist, setArtist] = useState("");
@@ -53,8 +54,8 @@ function App() {
   return (
     <>
       <div className="max-w-xl mt-8 mx-auto space-y-2 flex flex-col justify-center">
-        <h1>iTunes Search</h1>
-        <form onSubmit={onSearch} className="flex flex-col gap-2 mb-8">
+        <h1 className="text-4xl  text-center">iTunes Search</h1>
+        <form onSubmit={onSearch} className="flex flex-col gap-2 my-8 mx-auto">
           <div>
             <TextField
               id="artist"
@@ -84,7 +85,11 @@ function App() {
 
         {error && <p className="text-red-500">{error}</p>}
 
-        {loading && "Loading..."}
+        {loading &&
+        <div className="flex justify-center">
+         <CircularProgress />
+        </div>
+        }
         {data && (
           <>
             <p>検索結果：{data.resultCount}件</p>
